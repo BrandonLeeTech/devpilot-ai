@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DevPilot AI 🚀
+
+> AI-powered QA Automation Toolkit for Selenium, Playwright, Appium & Cypress engineers.
+
+## Overview
+
+DevPilot AI generates reliable, maintainable test locators from raw HTML using AI — saving QA engineers hours of manual inspection.
+
+## MVP Feature — Locator Generator
+
+Paste any HTML snippet and receive:
+
+| Output | Description |
+|--------|-------------|
+| **Best Locator** | Framework-agnostic recommendation |
+| **Playwright** | `page.getByRole()`, `page.getByTestId()`, etc. |
+| **Selenium XPath** | Stable, attribute-based XPath |
+| **Selenium CSS** | CSS selector |
+| **Appium** | Mobile-compatible locator |
+| **Explanation** | Why this locator was chosen |
+| **Confidence Score** | 0–100% reliability rating |
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript (strict mode)
+- **Styling**: TailwindCSS v4 + shadcn/ui
+- **AI**: OpenAI API (provider-agnostic architecture)
+- **Deploy**: Vercel
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Configure environment
+cp .env.example .env.local
+# → Fill in your OPENAI_API_KEY
+
+# 3. Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js App Router (pages + API routes)
+│   └── api/generate-locator/
+├── components/
+│   ├── ui/                 # shadcn/ui base components
+│   └── locator/            # Feature-specific components
+├── services/               # AI service layer (business logic)
+├── lib/                    # Utilities, OpenAI client, prompts
+└── types/                  # TypeScript interfaces & enums
+```
 
-## Learn More
+## Documentation
 
-To learn more about Next.js, take a look at the following resources:
+- [ARCHITECTURE.md](./ARCHITECTURE.md) — System design decisions
+- [ROADMAP.md](./ROADMAP.md) — Feature roadmap
+- [TASKS.md](./TASKS.md) — Active development tasks
+- [CLAUDE.md](./CLAUDE.md) — AI engineer rules
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [ROADMAP.md](./ROADMAP.md) for the full plan including Screenshot Analyzer, VSCode Extension, Chrome Extension, and more.
